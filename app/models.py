@@ -1,13 +1,35 @@
 from django.db import models
 
-class aloqa(models.Model):
-    telefon = models.IntegerField()
-    online_yozish = models.CharField(max_length=500)
-    instagram = models.URLField(max_length=200)
-    whatsapp = models.URLField(max_length=200)
+from ckeditor.fields import RichTextField
+
+from mptt.models import MPTTModel
+from mptt.fields import TreeForeignKey
+
+
+
+class Aloqa(MPTTModel):
+
+    title = models.CharField(max_length=222)
+    image = models.ImageField(upload_to="aloqa/%Y/%m/%d")
+    # default
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.telefon
+        return self.title
     
-# class portfolio(models.Model):
-#     logo_branding = 
+
+
+""" TabularInline uchun modellar """
+
+
+class AloqaTable(MPTTModel):
+
+    aloqa = TreeForeignKey(to=Aloqa, on_delete=models.CASCADE, related_name='aloqatable', blank=True, null=True)
+    icon = models.ImageField(upload_to="image/%Y/%m/%d")
+    tarmoq = models.CharField(max_length=233, verbose_name="Tarmoq nomi")
+    link_socialmedia = models.URLField(max_length=233, verbose_name="Tarmoq havolasi")
+
+
+    # default
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
+

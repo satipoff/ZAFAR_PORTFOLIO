@@ -1,0 +1,12 @@
+django
+djangorestframework
+pillow
+django-mptt
+whitenoise
+django-ckeditor
+
+
+django-cors-headers
+drf-writable-nested
+django-filter
+
