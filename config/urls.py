@@ -22,6 +22,12 @@ from django.views.static import serve
 
 
 from rest_framework import routers
+from projects.views import (
+    ProjectCategoriesViewSet,
+    ProjectTableImagesViewSet,
+    ProjectsViewSet,
+)
+
 
 from app.views import (
    AloqaSerializerViewSet,
@@ -30,6 +36,9 @@ from app.views import (
 
 router = routers.DefaultRouter()
 router.register('aloqa', AloqaSerializerViewSet, basename='aloqajinsiy')
+router.register(r'project-categories', ProjectCategoriesViewSet)
+# router.register(r'project-table-images', ProjectTableImagesViewSet)
+router.register(r'projects', ProjectsViewSet)
 
 
 

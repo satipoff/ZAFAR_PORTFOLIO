@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'mptt',
     
     'app',
+    'projects',
+    
 ]
 
 MIDDLEWARE = [
