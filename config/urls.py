@@ -25,6 +25,7 @@ from rest_framework import routers
 from projects.views import (
     ProjectCategoriesViewSet,
     ProjectTableImagesViewSet,
+    ProjectViewSet,
     ProjectsViewSet,
 )
 
@@ -39,6 +40,8 @@ router.register('aloqa', AloqaSerializerViewSet, basename='aloqajinsiy')
 router.register(r'project-categories', ProjectCategoriesViewSet)
 # router.register(r'project-table-images', ProjectTableImagesViewSet)
 router.register(r'projects', ProjectsViewSet)
+router.register(r'proj/(?P<category_id>\d+)', ProjectViewSet, basename='project_by_id')
+
 
 
 
