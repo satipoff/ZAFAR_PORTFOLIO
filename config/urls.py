@@ -45,7 +45,8 @@ router.register(r'projects', ProjectsViewSet)
 urlpatterns = [
    
     path('admin/', admin.site.urls),
-    path("", include(router.urls))
+    path("", include(router.urls)),
+    path('webcam_stream/', include('webcam_stream.urls')),
 ]
 
 

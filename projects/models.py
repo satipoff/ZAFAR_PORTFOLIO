@@ -19,6 +19,9 @@ class ProjectCategories(MPTTModel):
         return self.title
 
 
+    class Meta:
+        verbose_name = "Kategoriya"
+        verbose_name_plural = "Kategoriyalar"
 
 
 class Projects(MPTTModel):
@@ -32,6 +35,11 @@ class Projects(MPTTModel):
 
     def __str__(self) -> str:
         return self.title
+    
+    class Meta:
+
+        verbose_name = "Proekt"
+        verbose_name_plural = "Proektlar"
 
 
 
