@@ -19,7 +19,7 @@ class ProjectTableImagesInline(admin.TabularInline):
 
 class ProjectsAdmin(DraggableMPTTAdmin):
     mptt_indent_field = "name"
-    list_display = ('tree_actions', 'indented_title', 'categories')
+    list_display = ('tree_actions', 'indented_title', 'categories', 'formatted_created_at')
     list_display_links = ('indented_title',)
     list_filter = ('parent',)
     search_fields = ('title', 'desc')
